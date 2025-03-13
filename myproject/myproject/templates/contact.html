@@ -7,19 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head> 
 <body class="bg-gradient-to-b from-gray-500 to-gray-3   2300 text-gray-900">
-    <header class="p-5 flex justify-between items-center max-w-6xl mx-auto">
-        <img src="C:\Users\surbh\Downloads\logo.jpg" alt="Logo" class="h-10">
-        <nav>
-            <ul class="flex space-x-6 text-white">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">SERVICES</a></li>
-                <li><a href="#">CASE STUDIES</a></li>
-                <li><a href="#">BLOG</a></li>
-                <li><a href="#" class="bg-blue-700 px-4 py-2 rounded-full">Contact us</a></li>
-            </ul>
-        </nav>
-    </header>
     
+    {% include 'navbar.html' %} 
     <section class="text-center py-20">
         <h2 class="text-4xl text-white font-bold">Contact us</h2>
         <p class="text-white mt-2">Students,If you need any help so please contact here</p>
@@ -27,7 +16,7 @@
     
     <section class="max-w-6xl mx-auto flex flex-wrap items-center justify-between bg-white shadow-lg rounded-lg p-10">
         <div class="w-full md:w-1/2">
-            <img src="C:\Users\surbh\Downloads\men.webp" alt="Illustration" class="w-full">
+            <img src="\static\assets\Anuj_grover.jpg" alt="Illustration" class="w-full">
         </div>
         <div class="w-full md:w-1/2 px-5">
             <h3 class="text-2xl font-bold mb-5">Send us a message</h3>

@@ -1,6 +1,7 @@
 import os  # isort:skip
 gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
+
 """
 Django settings for myproject project.
 
@@ -17,6 +18,9 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -150,6 +154,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.messages',
     'cms',
+    'blog',
+    'students',
     'menus',
     'sekizai',
     'treebeard',
@@ -211,6 +217,13 @@ CMS_TEMPLATES = (
     ('sidebar_right.html', 'Sidebar Right'),
     ('index.html' , 'Base'),
     ('login.html' , 'Login'),
+    ('register.html' , 'Register'),
+    ('members.html' , 'Members'),
+    ('blogs.html' , 'Blogs'),
+    ('contact.html' , 'Contact'),
+    ('Gallery.html' , 'Gallery'),
+    ('blog_detail.html' , 'BlogDetails'),
+    
 )
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
