@@ -1,0 +1,52 @@
+<div class="bg-white">
+
+<div class="px-5 flex justify-between items-center max-w-[1300px] mx-auto">
+    <div>
+        <img class="h-20" src="\static\assets\v-icon.png" />
+    </div>
+    
+    <ul class="flex space-x-6">
+       
+
+        <li><a href="/">Home</a></li>
+        <li>
+            <div class="relative group">
+                <button class="group-hover:bg-gray-200 cursor-pointer">Members</button>
+                <ul class="absolute hidden z-10 group-hover:block bg-white shadow-lg p-2 space-y-2">
+                    <li class="p-2">
+                        <a href="/phd">P.hd</a>
+                    </li>
+                    <li class="p-2">
+                        <a href="/mtech">M.Tech</a>
+                    </li>
+                    <li class="p-2">
+                        <a href="/btech">B.Tech</a>
+                    </li>
+
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="/research">Research</a>
+        </li>
+
+        <!-- <li>
+            <a href="/blogs">Blogs</a>
+        </li> -->
+        <li>
+            <a href="/contact">Contact Us</a>
+        </li>
+
+        <li>
+            <a href="/gallery">Gallery</a>
+        </li>
+        <li>
+            <a href="{% url 'blog_list' %}">Blog</a>
+        </li>
+
+    </ul>
+    <div><img class="h-20 w-[350px] object-cover" src="/static/assets/iiitd_logo.png" /></div>
+    
+</div>
+</div>
+

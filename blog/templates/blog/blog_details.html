@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <div class="flex items-center space-x-4 mb-4">
+        {% if post.profile_photo %}
+        <img src="{{ post.profile_photo.url }}" alt="{{ post.name }}" class="w-16 h-16 rounded-full border-2 border-gray-300">
+        {% else %}
+        <div class="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">N/A</div>
+        {% endif %}
+        <div>
+            <h2 class="text-xl font-semibold text-gray-800">{{ post.author }}</h2>
+            <p class="text-sm text-gray-500">{{ post.created_at|date:"F d, Y" }}</p>
+        </div>
+    </div>
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ post.title }}</h1>
+    <p class="text-gray-700 leading-relaxed">{{ post.content }}</p>
+    
+    <div class="mt-6 border-t pt-6">
+        <!-- <h2 class="text-2xl font-bold text-gray-800">Why This Topic Matters</h2>
+        <p class="text-gray-700 mt-2">Understanding the context and importance of this subject helps to shape discussions and insights.</p> -->
+    </div>
+    
+    <div class="mt-6 border-t pt-6">
+        <!-- <h2 class="text-2xl font-bold text-gray-800">Key Takeaways</h2> -->
+        <!-- <ul class="list-disc list-inside text-gray-700 mt-2">
+            <li>Insightful analysis of the topic</li>
+            <li>How it impacts daily life and industry</li>
+            <li>Future predictions and trends</li>
+        </ul> -->
+    </div>
+    
+    <div class="mt-6 border-t pt-6 bg-gray-100 p-4 rounded-lg">
+        <!-- <h2 class="text-2xl font-bold text-gray-800">Join the Discussion</h2> -->
+        <p class="text-gray-700 mt-2">Have thoughts on this topic? Share your comments below!</p>
+    </div>
+</div>
+{% endblock %}

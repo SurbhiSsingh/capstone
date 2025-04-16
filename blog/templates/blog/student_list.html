@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex justify-between items-center">
+
+    <h1 class="text-3xl font-bold mb-4">All Student</h1>
+    <buotton class="border border-blue-500 bg-blue-500 cursor-pointer text-white py-2 px-4 rounded-md font-bold mb-4">Add New Student</buotton>
+</div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {% for student in students %}
+        <div class=" p-4 border border-gray-300 rounded">
+            <h2 class="text-2xl font-bold">
+                <!-- <a href="{% url 'blog_detail' student.slug %}">{{ student.name }}</a> -->
+                <a href="/">{{ student.name }}</a>
+            </h2>
+            <p class="text-sm text-gray-600">By {{ student.phone }}</p>
+            <p>{{ student.email }}</p>
+        </div>
+    {% endfor %}
+    </div>
+  
+{% endblock %}

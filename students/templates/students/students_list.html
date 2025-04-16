@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="flex justify-between items-center">
+    <h1 class="text-3xl font-bold mb-4">All Students</h1>
+    <div class="flex items-center gap-10">
+        <div class="border py-1 rounded-md">
+            <select id="course" name="course" class="outline-none px-3" onchange="filterStudents()">
+                <option value="All">All</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="Ph.D">Ph.D</option>
+            </select>
+        </div>
+        <button class="border border-blue-500 bg-blue-500 cursor-pointer text-white py-1 px-4 rounded-md font-semibold">
+            Add New Student
+        </button>
+    </div>
+</div>
+
+<!-- Student List -->
+<div id="student-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
+    {% for post in students %}
+        <div class="student-card relative border border-gray-300 rounded-md overflow-hidden" data-course="{{ post.course }}">
+            <span class="absolute top-2 right-2 rounded-md z-10 bg-white border-2 px-2 py-1">{{post.course}}</span>
+            <div class="aspect-[4/2.5]">
+                {% if post.profile_photo %}
+                <img src="{{ post.profile_photo.url }}" alt="{{ post.name }}" class="h-[100%] w-full object-cover">
+                {% else %}
+                    <img src="{% static '4.jpg' %}" alt="Default Profile" class="w-full  h-[100%] object-cover"/>
+                {% endif %}
+            </div>
+               
+            <div class="p-2">
+                <h2 class="text-xl font-bold">
+                    <a href="{% url 'student_detail' post.slug %}">{{ post.name }}</a>
+                </h2>
+                <p class="text-sm text-gray-600">By {{ post.email }} | {{ post.created_at|date:"F d, Y" }}</p>
+                <p>{{ post.content|truncatewords:20 }}</p>
+            </div>
+       
+    </div>
+    {% endfor %}
+   
+</div>
+
+<!-- JavaScript for Frontend Filtering -->
+<script>
+    function filterStudents() {
+        let selectedcourse = document.getElementById("course").value;
+
+        let students = document.querySelectorAll(".student-card");
+
+        students.forEach(student => {
+            let studentcourse = student.getAttribute("data-course");
+
+            if (selectedcourse === "All" || studentcourse === selectedcourse) {
+                student.style.display = "block"; // Show matching students
+            } else {
+                student.style.display = "none"; // Hide non-matching students
+            }
+        });
+    }
+</script>
+
+{% endblock %}

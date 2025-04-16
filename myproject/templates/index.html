@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider-container {
+            /* width: 80%; */
+            /* Smaller width */
+            /* max-width: 600px; */
+            /* Maximum width */
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            max-width: 100%;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .slider-button-left {
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .slider-button-right {
+            right: 10px;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body>
+  {% include 'navbar.html' %} 
+
+    <div class=" max-w-[1600px] mx-auto w-full">
+
+        <div class="relative slider-container w-full h-[500px] ">
+            <button class="slider-button slider-button-left px-2" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="slider h-full">
+                <div class="slide h-full">
+                    <img src="\static\assets\indoor copy.jpg" alt="Image 1" class="w-full h-full object-cover" />
+                </div>
+                <div class="slide">
+                    <img src="\static\assets\11.jpg" alt="w-full h-full object-cover" />
+                </div>
+                <div class="slide">
+                    <img src="\static\assets\13.jpg" alt="w-full h-full object-cover" />
+                </div>
+                <div class="slide">
+                    <img src="\static\assets\14.jpg" alt="w-full h-full object-cover" />
+                </div>
+                <div class="slide">
+                    <img src="\static\assets\9.jpg" alt="w-full h-full object-cover" />
+                </div>
+                <div class="slide">
+                    <img src="\static\assets\18.jpg" alt="w-full h-full object-cover" />
+                </div>
+            </div>
+            <button class="slider-button slider-button-right px-2" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="max-w-[1300px] mx-auto px-5 py-5 grid grid-cols-1  gap-5 mt-10">
+
+        <div class="grid grif-cols-2 lg:grid-cols-3 ">
+            <div class="lg:h-[250px]  lg:aspect-[4/5]  ">
+                <img class="h-[100%] w-full " src="\static\assets\Anuj_grover.JPG" />
+
+            </div>
+            <div class="lg:col-span-2">
+
+                <h2 class="text-xl font-bold">Dr. Anuj Grover</h2>
+                <p class="font-semibold">Associate Professor</p>
+                <p>Department of Electronics and Communication Engineering
+                    Indraprastha Institute of Information Technology, Delhi (IIIT Delhi)
+                    Okhla Industrial Estate, Phase III, New Delhi - 110020</p>
+                <p>Phone: 011 2690 7494</p>
+                <p>Email: <a href="mailto:anuj@iiitd.ac.in" class="text-blue-500">anuj@iiitd.ac.in</a></p>
+                <p>Web: <a href="https://bit.ly/anuj-grover" class="text-blue-500"
+                        target="_blank">https://bit.ly/anuj-grover</a></p>
+                <p>YouTube: <a href="https://www.youtube.com/c/anujg1" class="text-blue-500"
+                        target="_blank">https://www.youtube.com/c/anujg1</a></p>
+
+            </div>
+
+        </div>
+        <div class="flex justigy-center h-full flex-col justigy-center gap-5">
+            <h3 class="text-3xl font-bold">Welcome to the VICAS-LAB</h3>
+            <p class="text-base">Welcome to the VLSI Circuits and Systems (VICAS) Lab at IIIT Delhi, a pioneering
+                research
+                facility
+                dedicated to advancing the frontiers of Ultra Low Power In-Memory Compute for edge computing and
+                machine learning applications. Situated in A-613 of the R&D block, the VICAS Lab is at the forefront
+                of innovation, focusing on critical areas such as safety and security in hardware, as well as error
+                resilient and energy-efficient systems. Under the expert guidance of Dr. Anuj Grover, our lab is
+                committed to developing cutting-edge technologies that meet the ever-growing demands of modern
+                computational systems, ensuring both high performance and robust security. Join us as we explore
+                groundbreaking solutions that are set to shape the future of computing.</p>
+        </div>
+    </div>
+
+    <footer class="max-w-[1300px] mx-auto px-5 py-5 border mt-10">
+    
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.slide');
+            slideIndex += step;
+
+            // Ensure the slideIndex stays within the range of slides
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            // Move the slider
+            const slider = document.querySelector('.slider');
+            const slideWidth = slides[0].offsetWidth;
+            slider.style.transform = `translateX(-${slideWidth * slideIndex}px)`;
+        }
+    </script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+</body>
+
+</html>

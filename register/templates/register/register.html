@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex justify-center items-center mt-20">
+    <div class="bg-white px-4 py-6 rounded-lg shadow-md w-96 border">
+        <h2 class="text-xl font-semibold text-center mb-4">Register</h2>
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="flex flex-col">
+                    <label class="text-gray-700 font-medium mb-1">{{ field.label_tag }}</label>
+                    {{ field }}
+                    <div class="text-red-500 text-sm">{{ field.errors }}</div>
+                </div>
+            {% endfor %}
+            <button type="submit"
+                class="w-full mt-4 bg-[#4cb4a5] text-white py-2 rounded-lg hover:bg-[#4cb4a5]/80 transition">
+                Register
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
