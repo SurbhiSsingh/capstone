@@ -2,17 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .slider-container {
-            /* width: 80%; */
-            /* Smaller width */
-            /* max-width: 600px; */
-            /* Maximum width */
             margin: auto;
             overflow: hidden;
+            position: relative;
         }
 
         .slider {
@@ -34,60 +33,57 @@
             font-size: 24px;
             cursor: pointer;
             border: none;
+            transform: translateY(-50%);
         }
 
         .slider-button-left {
             left: 10px;
-            transform: translateY(-50%);
         }
 
         .slider-button-right {
             right: 10px;
-            transform: translateY(-50%);
         }
     </style>
 </head>
 
 <body>
-  {% include 'navbar.html' %} 
+    {% include 'navbar.html' %}
 
-    <div class=" max-w-[1600px] mx-auto w-full">
+    <div class="max-w-[1600px] mx-auto w-full">
+        {% comment %} <a href="{% url 'news_list' %}" class="hover:text-red-500">News</a> {% endcomment %}
 
-        <div class="relative slider-container w-full h-[500px] ">
+        <div class="relative slider-container w-full h-[500px]">
             <button class="slider-button slider-button-left px-2" onclick="moveSlide(-1)">&#10094;</button>
             <div class="slider h-full">
                 <div class="slide h-full">
                     <img src="\static\assets\indoor copy.jpg" alt="Image 1" class="w-full h-full object-cover" />
                 </div>
                 <div class="slide">
-                    <img src="\static\assets\11.jpg" alt="w-full h-full object-cover" />
+                    <img src="\static\assets\11.jpg" alt="Image 2" class="w-full h-full object-cover" />
                 </div>
                 <div class="slide">
-                    <img src="\static\assets\13.jpg" alt="w-full h-full object-cover" />
+                    <img src="\static\assets\13.jpg" alt="Image 3" class="w-full h-full object-cover" />
                 </div>
                 <div class="slide">
-                    <img src="\static\assets\14.jpg" alt="w-full h-full object-cover" />
+                    <img src="\static\assets\14.jpg" alt="Image 4" class="w-full h-full object-cover" />
                 </div>
                 <div class="slide">
-                    <img src="\static\assets\9.jpg" alt="w-full h-full object-cover" />
+                    <img src="\static\assets\9.jpg" alt="Image 5" class="w-full h-full object-cover" />
                 </div>
                 <div class="slide">
-                    <img src="\static\assets\18.jpg" alt="w-full h-full object-cover" />
+                    <img src="\static\assets\18.jpg" alt="Image 6" class="w-full h-full object-cover" />
                 </div>
             </div>
             <button class="slider-button slider-button-right px-2" onclick="moveSlide(1)">&#10095;</button>
         </div>
     </div>
 
-    <div class="max-w-[1300px] mx-auto px-5 py-5 grid grid-cols-1  gap-5 mt-10">
-
+    <div class="max-w-[1300px] mx-auto px-5 py-5 grid grid-cols-1 gap-5 mt-10">
         <div class="grid grif-cols-2 lg:grid-cols-3 ">
-            <div class="lg:h-[250px]  lg:aspect-[4/5]  ">
-                <img class="h-[100%] w-full " src="\static\assets\Anuj_grover.JPG" />
-
+            <div class="lg:h-[250px] lg:aspect-[4/5]">
+                <img class="h-full w-full" src="\static\assets\Anuj_grover.JPG" />
             </div>
             <div class="lg:col-span-2">
-
                 <h2 class="text-xl font-bold">Dr. Anuj Grover</h2>
                 <p class="font-semibold">Associate Professor</p>
                 <p>Department of Electronics and Communication Engineering
@@ -99,28 +95,86 @@
                         target="_blank">https://bit.ly/anuj-grover</a></p>
                 <p>YouTube: <a href="https://www.youtube.com/c/anujg1" class="text-blue-500"
                         target="_blank">https://www.youtube.com/c/anujg1</a></p>
-
             </div>
-
         </div>
-        <div class="flex justigy-center h-full flex-col justigy-center gap-5">
+
+        <div class="flex justify-center h-full flex-col gap-5">
             <h3 class="text-3xl font-bold">Welcome to the VICAS-LAB</h3>
-            <p class="text-base">Welcome to the VLSI Circuits and Systems (VICAS) Lab at IIIT Delhi, a pioneering
-                research
-                facility
+            <p class="text-base">
+                Welcome to the VLSI Circuits and Systems (VICAS) Lab at IIIT Delhi, a pioneering research facility
                 dedicated to advancing the frontiers of Ultra Low Power In-Memory Compute for edge computing and
                 machine learning applications. Situated in A-613 of the R&D block, the VICAS Lab is at the forefront
                 of innovation, focusing on critical areas such as safety and security in hardware, as well as error
                 resilient and energy-efficient systems. Under the expert guidance of Dr. Anuj Grover, our lab is
                 committed to developing cutting-edge technologies that meet the ever-growing demands of modern
                 computational systems, ensuring both high performance and robust security. Join us as we explore
-                groundbreaking solutions that are set to shape the future of computing.</p>
+                groundbreaking solutions that are set to shape the future of computing.
+            </p>
         </div>
-    </div>
+     <div class="flex justify-center h-full flex-col gap-5">
+        <h3 class="text-3xl font-bold">Program Structure</h3>
+        <p class="text-base">
+            As per M.Tech. regulations, a student is required to complete 12 credits (all the courses) from core bucket and 8 credits to get specialization in VLSI and Embedded Systems. 
+            Overall 48 credits must be completed to get M.Tech. degree with VLSI and Embedded Systems specialization.
+        </p>
+     </div>
+        <div class="flex justify-center h-full flex-col gap-5">
+       <h3 class="text-3xl font-bold">Core Courses</h3>
+    <p>Three courses constitute the core of this stream. These are:</p>
+    <ul>
+        <li>Digital VLSI Design</li>
+        <li>Analog CMOS Circuit Design</li>
+        <li>Advanced Embedded Logic</li>
+    </ul>
+       </div>
 
-    <footer class="max-w-[1300px] mx-auto px-5 py-5 border mt-10">
-    
+        <div class="flex justify-center h-full flex-col gap-5">
+       <h3 class="text-3xl font-bold">Elective Courses</h3>
+    <p>The following are the elective courses which are currently being offered in VLSI and Embedded Systems stream.</p>
+    <ul>
+        <li>SOC Design & Test</li>
+        <li>Mixed Signal Design</li>
+        <li>Computer Architecture</li>
+        <li>Memory Design</li>
+        <li>VLSI Design & Test Flow</li>
+        <li>RF Circuit Design</li>
+        <li>RF Transceiver Design</li>
+        </ul>
+       </div>
+          <div class="flex justify-center h-full flex-col gap-5">
+       <h3 class="text-3xl font-bold">Research Areas</h3>
+    <ul>
+        <li>Low Power Design</li>
+        <li>Network on Chip</li>
+        <li>Computer Architecture</li>
+        <li>RF Circuits</li>
+    </ul>
+       </div>
+    </div>
+  
+
+    <footer class="bg-[#69b3ae] py-8 mt-10">
+        <div class="max-w-[1300px] mx-auto px-5 flex flex-col lg:flex-row items-center justify-between gap-5">
+            <div class="text-center lg:text-left">
+                <p class="text-sm text-white">© 2025 VICAS-LAB, IIIT-Delhi. All rights reserved.</p>
+            </div>
+            <div class="flex gap-4">
+                <a href="https://facebook.com" target="_blank" class="text-white hover:text-blue-600 text-xl">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="text-white hover:text-blue-400 text-xl">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="text-white hover:text-blue-700 text-xl">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="text-white hover:text-red-600 text-xl">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
     </footer>
+    
 
     <script>
         let slideIndex = 0;
@@ -129,7 +183,6 @@
             const slides = document.querySelectorAll('.slide');
             slideIndex += step;
 
-            // Ensure the slideIndex stays within the range of slides
             if (slideIndex >= slides.length) {
                 slideIndex = 0;
             }
@@ -137,14 +190,17 @@
                 slideIndex = slides.length - 1;
             }
 
-            // Move the slider
             const slider = document.querySelector('.slider');
             const slideWidth = slides[0].offsetWidth;
             slider.style.transform = `translateX(-${slideWidth * slideIndex}px)`;
         }
+
+        // Auto-slide every 3 seconds
+        setInterval(() => {
+            moveSlide(1);
+        }, 3000);
     </script>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-
 </body>
 
 </html>

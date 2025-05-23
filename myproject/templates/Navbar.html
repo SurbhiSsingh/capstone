@@ -1,117 +1,103 @@
-<div class="bg-white">
-
-<div class="max-sm:px-5 flex justify-between items-center max-w-[1300px] mx-auto">
-    <a href="/">
+{% comment %} <div class="bg-white">
+    <div class="max-sm:px-5 flex justify-between items-center max-w-[1300px] mx-auto">
+      <a href="/">
         <img class="h-20" src="\static\assets\v-icon.png" />
-    </a>
-    
-    <ul class="max-sm:flex-col hidden lg:flex  lg:space-x-6">
-       
-
+      </a>
+  
+      <!-- Desktop Nav -->
+      <ul class="max-sm:flex-col hidden lg:flex lg:space-x-6">
         <li><a href="/">Home</a></li>
-        <li>
-            <div class="relative group">
-                <button class="group-hover:bg-gray-200 cursor-pointer">Members</button>
-                <ul class="absolute hidden z-10 group-hover:block bg-white shadow-lg p-2 space-y-2">
-                    <li class="p-2">
-                        <a href="/Ph.d">P.hd</a>
-                    </li>
-                    <li class="p-2">
-                        <a href="/mtech">M.Tech</a>
-                    </li>
-                    <li class="p-2">
-                        <a href="/btech">B.Tech</a>
-                    </li>
-
-                </ul>
-            </div>
-        </li>
-        <li>
-            <a href="/research">Research</a>
-        </li>
-
-        <!-- <li>
-            <a href="/blogs">Blogs</a>
-        </li> -->
-        <li>
-            <a href="/contact">Contact Us</a>
-        </li>
-
-        <li>
-            <a href="/gallery">Gallery</a>
-        </li>
-        <li>
-            <a href="{% url 'blog_list' %}">Blog</a>
-        </li>
-        <li>
-            <a href="{% url 'student_list' %}">Student</a>
-        </li>
-        <li>
-            <a href="{% url 'register' %}">Register</a>
-        </li>
-       
-
-
-
-
-    </ul>
-    <div class="hidden lg:block"><img class="h-20 w-[350px] object-cover" src="/static/assets/iiitd_logo.png" /></div>
-    
-
-    <button onclick="toggleNav()" class="max-sm:block hidden border h-12 w-12 flex justify-center items-center rounded-full hover:bg-black hover:text-white">nav</button>
-
-
-    <ul id="nav-menu" class="hidden bg-white shadow-lg p-4 z-20 w-full flex flex-col gap-4 absolute top-16 left-0 px-5">
-       
-
+        <li><a href="/research">Research</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="{% url 'blog_list' %}">Blog</a></li>
+        <li><a href="{% url 'student_list' %}">Student</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
+      </ul>
+  
+      <!-- Logo Right -->
+      <div class="hidden lg:block">
+        <img class="h-20 w-[350px] object-cover" src="/static/assets/iiitd_logo.png" />
+      </div>
+  
+      <!-- Mobile Nav Button -->
+      <button onclick="toggleNav()" class="max-sm:block hidden border h-12 w-12 flex justify-center items-center rounded-full hover:bg-black hover:text-white">nav</button>
+  
+      <!-- Mobile Nav Menu -->
+      <ul id="nav-menu" class="hidden bg-white shadow-lg p-4 z-20 w-full flex flex-col gap-4 absolute top-16 left-0 px-5">
         <li><a href="/">Home</a></li>
-        <!-- <li>
-            <div class="relative group">
-                <button class="group-hover:bg-gray-200 cursor-pointer">Members</button>
-                <ul class="absolute hidden z-10 group-hover:block bg-white shadow-lg p-2 space-y-2">
-                    <li class="p-2">
-                        <a href="/phd">P.hd</a>
-                    </li>
-                    <li class="p-2">
-                        <a href="/mtech">M.Tech</a>
-                    </li>
-                    <li class="p-2">
-                        <a href="/btech">B.Tech</a>
-                    </li>
-
-                </ul>
-            </div>
-        </li> -->
-        <li>
-            <a href="/research">Research</a>
-        </li>
-
-        <!-- <li>
-            <a href="/blogs">Blogs</a>
-        </li> -->
-        <li>
-            <a href="/contact">Contact Us</a>
-        </li>
-
-        <li>
-            <a href="/gallery">Gallery</a>
-        </li>
-        <li>
-            <a href="{% url 'blog_list' %}">Blog</a>
-        </li>
-
-    </ul>
-
-
-
-
-</div>
-
+        <li><a href="/research">Research</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="{% url 'blog_list' %}">Blog</a></li>
+        <li><a href="{% url 'student_list' %}">Student</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
+      </ul>
+    </div>
+  
+    <!-- JS Script -->
     <script>
-        function toggleNav(){
-            let navMenu=document.getElementById("nav-menu");
-            navMenu.classList.toggle("hidden")
-        }
+      function toggleNav() {
+        let navMenu = document.getElementById("nav-menu");
+        navMenu.classList.toggle("hidden");
+      }
     </script>
-</div>
+  </div>
+   {% endcomment %}
 
+   <div class="bg-white">
+    <div class="px-5 flex justify-between items-center max-w-[1300px] mx-auto">
+      <a href="/">
+        <img class="h-20" src="/static/assets/v-icon.png" />
+      </a>
+  
+      <!-- Desktop & Tablet Nav -->
+      <ul class="hidden md:flex md:space-x-6">
+        <li><a href="/">Home</a></li>
+        {% comment %} <li><a href="/research">Research</a></li> {% endcomment %}
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="{% url 'blog_list' %}">Blog</a></li>
+        <li><a href="{% url 'faculty_list' %}">Faculty</a></li>   <!-- Faculty link added -->
+
+        <li><a href="{% url 'student_list' %}">Student</a></li>
+        <li><a href="{% url 'news_list' %}">News</a></li>
+        <li><a href="{% url 'mission_vision' %}">Mission & Vision</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
+      </ul>
+  
+      <!-- Logo Right -->
+      <div class="hidden lg:block">
+        <img class="h-20 w-[350px] object-cover" src="/static/assets/iiitd_logo.png" />
+      </div>
+  
+      <!-- Mobile Nav Button -->
+      <button onclick="toggleNav()" class="block md:hidden border h-12 w-12 flex justify-center items-center rounded-full hover:bg-black hover:text-white">
+        nav
+      </button>
+    </div>
+  
+    <!-- Mobile Nav Menu -->
+    <ul id="nav-menu" class="hidden bg-white shadow-lg p-4 z-20 w-full flex flex-col gap-4 absolute top-16 left-0 px-5 md:hidden">
+      <li><a href="/">Home</a></li>
+      {% comment %} <li><a href="/research">Research</a></li> {% endcomment %}
+      <li><a href="/contact">Contact Us</a></li>
+      <li><a href="/gallery">Gallery</a></li>
+      <li><a href="{% url 'blog_list' %}">Blog</a></li>
+      <li><a href="{% url 'faculty_list' %}">Faculty</a></li>   <!-- Faculty link added -->
+      <li><a href="{% url 'student_list' %}">Student</a></li>
+      <li><a href="{% url 'news_list' %}">News</a></li>
+      <li><a href="{% url 'mission_vision' %}">Mission & Vision</a></li>
+
+      <li><a href="{% url 'register' %}">Register</a></li>
+    </ul>
+  
+    <!-- JS Script -->
+    <script>
+      function toggleNav() {
+        let navMenu = document.getElementById("nav-menu");
+        navMenu.classList.toggle("hidden");
+      }
+    </script>
+  </div>
+  

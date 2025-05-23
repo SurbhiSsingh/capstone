@@ -4,49 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <title>Gallery</title>
 </head>
 <body>
     {% include 'navbar.html' %} 
 
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-[1300px] mx-auto px-4 py-8">
+        <!-- Individual image items -->
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="/static/assets/Anuj_grover.jpg" alt="Anuj Grover" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">Dr.Anuj Grover</p>
+                <p class="text-white text-lg font-semibold">Professor ECE Department </p>
+            </div>
+        </div>
 
-    <h1 class="text-3xl font-bold text-center mb-6">Image Gallery</h1>
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="/static/assets/Amit_Kumar_Ratrey.jpg" alt="Amit Kumar Ratrey" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">Amit Kumar Ratrey</p>
+            </div>
+        </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  max-w-[1300px] mx-auto">
-        <!-- Randomly sized images -->
-        <div class="col-span-1 row-span-1">
-            <img src="\static\assets\Anuj_grover.jpg" alt="Random1" class="w-full h-auto rounded-lg shadow-lg">
-            <img src="\static\assets\Anuj_grover.jpg" alt="Random2" class="w-full h-auto rounded-lg shadow-lg mt-4">
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="/static/assets/Mohammad_Umar_Salim.jpeg" alt="Mohammad Umar Salim" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">Mohammad Umar Salim</p>
+            </div>
         </div>
-        <!-- <div class="col-span-2 row-span-1">
-            <img src="\static\assets\Sonia_Bondwal.jpg" alt="Random3" class="w-full h-auto rounded-lg shadow-lg"> -->
+
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="/static/assets/Ashutosh_Singh.jpeg" alt="Ashutosh Singh" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">Ashutosh Singh</p>
+            </div>
         </div>
-        <!-- <div class="col-span-1 row-span-2">
-            <img src="\static\assets\Anuj_grover.jpg"  alt="Random4" class="w-full h-auto rounded-lg shadow-lg">
-            <img src="\static\assets\Anuj_grover.jpg"  alt="Random5" class="w-full h-auto rounded-lg shadow-lg mt-4">
-        </div> -->
-       
-        <!-- <div class="col-span-2 row-span-1">
-            <img src="\static\assets\Anuj_grover.jpg" alt="Random6" class="w-full h-auto rounded-lg shadow-lg">
+
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="/static/assets/Saadia_Naaz.jpg" alt="Saadia Naaz" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">Saadia Naaz</p>
+            </div>
         </div>
-        <div class="col-span-1 row-span-1">
-            <img src="\static\assets\Anuj_grover.jpg"  alt="Random7" class="w-full h-auto rounded-lg shadow-lg">
+
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="/static/assets/Sonia_Bondwal.jpg" alt="Sonia Bondwal" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">Sonia Bondwal</p>
+            </div>
         </div>
-        <div class="col-span-1 row-span-1">
-            <img src="\static\assets\Saadia_Naaz.jpg"  alt="Random8" class="w-full h-auto rounded-lg shadow-lg">
-        </div> -->
-    
-        
-        <!-- <div class="col-span-1 row-span-1">
-            <img src="\static\assets\c3.png"  alt="Random9" class="w-full h-auto rounded-lg shadow-lg">
-        </div> -->
-        <!-- <div class="col-span-1 row-span-2">
-            <img src="\static\assets\Prashasti_IIITD.jpg"  alt="Random10" class="w-full h-auto rounded-lg shadow-lg">
-        </div> -->
-        <!-- <div class="col-span-1 row-span-1">
-            <img src="\static\assets\Mohammad_Umar_Salim.jpeg"  alt="Random11" class="w-full h-auto rounded-lg shadow-lg">
-        </div> -->
-        
+
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="/static/assets/Shanvi_Srivastava.jpeg" alt="Shanvi Srivastava" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">Shanvi Srivastava</p>
+            </div>
+        </div>
+
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="/static/assets/Prashasti_IIITD.jpg" alt="Prashasti" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">Prashasti</p>
+            </div>
+        </div>
+
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="\static\assets\Shweta_Pandey.jpg" alt="Shweta Pandey" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">Shweta Pandey</p>
+            </div>
+
+        </div>
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="\static\assets\22.jpg" alt="Group" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold"></p>
+            </div>
+            
+        </div>
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="\static\assets\19.jpg" alt="Group" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold"></p>
+            </div>
+            
+        </div>
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="\static\assets\12.jpg" alt="Group" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">VLSI Lab</p>
+            </div>
+            
+        </div>
+        <div class="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src="\static\assets\2.jpg" alt="Group" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <p class="text-white text-lg font-semibold">VLSI Lab</p>
+            </div>
+            
+        </div>
     </div>
+  
+    <footer class="bg-[#69b3ae] py-8 mt-10">
+        <div class="max-w-[1300px] mx-auto px-5 flex flex-col lg:flex-row items-center justify-between gap-5">
+            <div class="text-center lg:text-left">
+                <p class="text-sm text-white">© 2025 VICAS-LAB, IIIT-Delhi. All rights reserved.</p>
+            </div>
+            <div class="flex gap-4">
+                <a href="https://facebook.com" target="_blank" class="text-white hover:text-blue-600 text-xl">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="text-white hover:text-blue-400 text-xl">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="text-white hover:text-blue-700 text-xl">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="text-white hover:text-red-600 text-xl">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+
 </body>
 </html>

@@ -1,47 +1,113 @@
-<!-- {% load cms_tags menu_tags sekizai_tags %} -->
-<!doctype html>
+{% comment %} <!doctype html>
+{% load sekizai_tags %}
 <html>
     <head>
         <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <style type="text/css">
-            .nav {
-                padding-left: 0;
-            }
-            .nav li {
-                display: inline;
-                list-style-type: none;
-                padding-right: 20px;
-            }
-            .container {
-                width: 940px;
-                margin: 0 auto
-            }
-            .content {
-                float: left;
-                width: 80%;
-            }
-            .sidebar {
-                float: left;
-                width: 20%;
-            }
-        </style>
+        <meta name="description" content="Faculty profiles at IIIT-Delhi VICAS-LAB">
+        <meta name="keywords" content="IIIT-Delhi, Faculty, VICAS-LAB, Research">
+
+        <!-- Tailwind CSS -->
         <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Font Awesome 6 (CSS only) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p/wC5lP9Bf93bIhZtvG6tbmDmdv2+aEyqY5JOCn+LdQhY+YQ9fb4Pqmb4pWzCeyXKm68PjqCQDQ1HMPayfs6gA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Custom CSS blocks -->
         {% render_block "css" %}
     </head>
-    <body>
-        <!-- {% cms_toolbar %} -->
-        {%include "navbar.html" %}
-        <div class="container max-w-[1300px] mx-auto max-sm:px-5">
-           
 
-            <!-- <ul class="nav">
-                {% show_menu 0 100 100 100 %}
-            </ul> -->
+    <body>
+        <!-- Navigation bar -->
+        {% include "navbar.html" %}
+
+        <!-- Main container -->
+        <div class="container max-w-[1300px] mx-auto max-sm:px-5">
             {% block content %}
-            
             {% endblock content %}
         </div>
+
+        <!-- Custom JS blocks -->
         {% render_block "js" %}
+
+        <!-- Footer -->
+        <footer class="bg-[#69b3ae] py-8 mt-10">
+            <div class="max-w-[1300px] mx-auto px-5 flex flex-col lg:flex-row items-center justify-between gap-5">
+                <div class="text-center lg:text-left">
+                    <p class="text-sm text-white">© 2025 VICAS-LAB, IIIT-Delhi. All rights reserved.</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://facebook.com" target="_blank" class="text-white hover:text-blue-600 text-xl">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="text-white hover:text-blue-400 text-xl">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="text-white hover:text-blue-700 text-xl">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="text-white hover:text-red-600 text-xl">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
     </body>
-</html>
+</html> {% endcomment %}
+<!doctype html>
+{% load sekizai_tags %}
+<html>
+    <head>
+        <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Faculty profiles at IIIT-Delhi VICAS-LAB">
+        <meta name="keywords" content="IIIT-Delhi, Faculty, VICAS-LAB, Research">
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Font Awesome 6 (CSS only) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p/wC5lP9Bf93bIhZtvG6tbmDmdv2+aEyqY5JOCn+LdQhY+YQ9fb4Pqmb4pWzCeyXKm68PjqCQDQ1HMPayfs6gA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Custom CSS blocks -->
+        {% render_block "css" %}
+    </head>
+
+<body class="flex flex-col min-h-screen">
+    <!-- Navigation bar -->
+    {% include "navbar.html" %}
+
+    <!-- Main content area -->
+    <main class="flex-grow container max-w-[1300px] mx-auto max-sm:px-5">
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#69b3ae] py-8">
+        <div class="max-w-[1300px] mx-auto px-5 flex flex-col lg:flex-row items-center justify-between gap-5">
+            <div class="text-center lg:text-left">
+                <p class="text-sm text-white">© 2025 VICAS-LAB, IIIT-Delhi. All rights reserved.</p>
+            </div>
+            <div class="flex gap-4">
+                <a href="https://facebook.com" target="_blank" class="text-white hover:text-blue-600 text-xl">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="text-white hover:text-blue-400 text-xl">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="text-white hover:text-blue-700 text-xl">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="text-white hover:text-red-600 text-xl">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    {% render_block "js" %}
+</body>
+

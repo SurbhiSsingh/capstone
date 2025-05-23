@@ -1,0 +1,18 @@
+<!-- mission_vision.html -->
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<section class="mission-vision p-6 max-w-4xl mx-auto bg-white rounded shadow">
+    <div class="mission mb-8">
+        <h2 class="text-3xl font-bold text-blue-800 mb-2">Our Mission</h2>
+        <p>{{ mv.mission_text|linebreaks }}</p>
+    </div>
+
+    <div class="vision">
+        <h2 class="text-3xl font-bold text-green-800 mb-2">Our Vision</h2>
+        <p>{{ mv.vision_text|linebreaks }}</p>
+    </div>
+</section>
+{% endblock %}

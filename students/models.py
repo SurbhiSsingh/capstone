@@ -6,7 +6,9 @@ class Student(models.Model):
     # start = models.DateTimeField()  
     slug = models.SlugField(unique=True, blank=True, null=True)    
     email = models.EmailField(unique=True)
-    phone = models.CharField(max_length=10, unique=True)
+    # phone = models.CharField(max_length=10, unique=True)
+    phone = models.CharField(max_length=10, unique=True, null=True, blank=True)
+
 
     COURSE_CHOICES = [
         ('B.Tech', 'B.Tech'),
@@ -21,6 +23,10 @@ class Student(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
     profile_photo = models.ImageField(upload_to='students_photos/', blank=True, null=True)
+    awards = models.TextField(blank=True, null=True)
+    research = models.TextField(blank=True, null=True)
+    publications = models.TextField(blank=True, null=True)
+    other_info = models.TextField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -35,3 +41,8 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+    
+    
+    
+    #############################################################
+

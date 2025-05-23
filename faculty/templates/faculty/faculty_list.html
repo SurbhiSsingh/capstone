@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-6">
+    {% comment %} <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Faculty Members</h1> {% endcomment %}
+
+    <!-- Filter Dropdown -->
+    {% comment %} <div class="mb-6 text-center">
+        <label for="designation" class="mr-2 font-medium text-gray-700">Filter by Designation:</label>
+        <select id="designation" class="border border-gray-300 rounded px-3 py-2" onchange="filterFaculty()">
+            <option value="All">All</option>
+            {% for designation in designations %}
+                <option value="{{ designation }}">{{ designation }}</option>
+            {% endfor %}
+        </select>
+    </div> {% endcomment %}
+
+    <div id="faculty-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {% for faculty in faculties %}        
+        <div class="faculty-card relative border border-gray-200 rounded-xl overflow-hidden shadow bg-white" data-designation="{{ faculty.designation }}">
+            <div class="aspect-[4/3]">
+                {% if faculty.profile_photo %}
+                    <img src="{{ faculty.profile_photo.url }}" alt="{{ faculty.name }}" class="w-full h-full object-cover">
+                {% else %}
+                    <img src="{% static '4.jpg' %}" alt="Default Profile" class="w-full h-full object-cover"/>
+                {% endif %}
+            </div>
+
+            <div class="p-4">
+                <h2 class="text-xl font-semibold text-gray-800">
+                   <a href="{% url 'faculty_detail' faculty.slug %}" class="hover:text-blue-600">
+                    {{ faculty.name }}
+                   </a>
+                </h2>
+                <p class="text-gray-600 text-sm mt-1">{{ faculty.designation }}</p>
+                <p class="text-gray-500 text-xs mt-2">{{ faculty.email }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+<script>
+    function filterFaculty() {
+        const selected = document.getElementById("designation").value;
+        const cards = document.querySelectorAll(".faculty-card");
+
+        cards.forEach(card => {
+            const desig = card.getAttribute("data-designation");
+            if (selected === "All" || desig === selected) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+</script>
+{% endblock %}

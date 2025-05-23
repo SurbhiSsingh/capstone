@@ -26,8 +26,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 
 PRIMARY_EMAIL_DOMAIN = "iiitd.ac.in"
-BACKUP_EMAIL_DOMAIN = "iiitd.ac.in"  # Backup domain for future use
-HOD_EMAIL = "anuj@iiitd.ac.in"  # HOD email
+BACKUP_EMAIL_DOMAIN = "iiitd.ac.in"  # using  for backup
+HOD_EMAIL = "surbhi24141@iiitd.ac.in"  # HOD email
 
 
 ############
@@ -183,6 +183,9 @@ INSTALLED_APPS = [
     'cms',
     'blog',
     'students',
+    'news',
+    'mission',
+    'faculty',
     'register',
     'menus',
     'sekizai',

@@ -6,3 +6,5 @@ from .models import Student
 class StudentAdmin(admin.ModelAdmin):
     list_display = ("name", "email", "phone","course","branch","start","end")
     prepopulated_fields = {"slug": ("name",)}
+    
+  
