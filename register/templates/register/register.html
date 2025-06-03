@@ -1,23 +1,69 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+  <div class="bg-white px-8 rounded-xl shadow-lg w-96 border border-gray-200">
+    <form method="post" class="space-y-4">
+      {% csrf_token %} {% for field in form %}
+      <div class="flex flex-col space-y-1">
+        <label class="text-gray-700 font-medium">{{ field.label }}</label>
+        <div class="relative">
+          <input
+            type="{{ field.field.widget.input_type|default:'text' }}"
+            name="{{ field.name }}"
+            id="{{ field.id_for_label }}"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4cb4a5] focus:border-transparent"
+            {%
+            if
+            field.field.required
+            %}required{%
+            endif
+            %}
+            {%
+            if
+            field.field.widget.attrs.placeholder
+            %}
+            placeholder="{{ field.field.widget.attrs.placeholder }}"
+            {%
+            endif
+            %}
+          />
+        </div>
+        {% if field.help_text %}
+        <p></p>
+        {% endif %} {% if field.errors %}
+        <div class="text-red-500 text-sm mt-1">{{ field.errors }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
 
-{% block content %}
-<div class="flex justify-center items-center mt-20">
-    <div class="bg-white px-4 py-6 rounded-lg shadow-md w-96 border">
-        <h2 class="text-xl font-semibold text-center mb-4">Register</h2>
-        <form method="post" class="space-y-4">
-            {% csrf_token %}
-            {% for field in form %}
-                <div class="flex flex-col">
-                    <label class="text-gray-700 font-medium mb-1">{{ field.label_tag }}</label>
-                    {{ field }}
-                    <div class="text-red-500 text-sm">{{ field.errors }}</div>
-                </div>
-            {% endfor %}
-            <button type="submit"
-                class="w-full mt-4 bg-[#4cb4a5] text-white py-2 rounded-lg hover:bg-[#4cb4a5]/80 transition">
-                Register
-            </button>
-        </form>
+      <button
+        type="submit"
+        class="w-full mt-6 bg-[#4cb4a5] text-white py-3 rounded-lg hover:bg-[#3a8f83] transition duration-300 font-medium"
+      >
+        Register Now
+      </button>
+    </form>
+
+    <div class="mt-6 text-center">
+      <p class="text-gray-600">Already have an account?</p>
+      <a
+        href="{% url 'login' %}"
+        class="block w-full mt-2 py-3 text-[#4cb4a5] border border-[#4cb4a5] rounded-lg hover:bg-[#4cb4a5] hover:text-white transition duration-300 font-medium"
+      >
+        Login Here
+      </a>
     </div>
+
+    {% if messages %}
+    <div class="mt-4">
+      {% for message in messages %}
+      <div
+        class="p-4 rounded-lg {% if message.tags == 'error' %}bg-red-100 text-red-700{% else %}bg-green-100 text-green-700{% endif %}"
+      >
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}
