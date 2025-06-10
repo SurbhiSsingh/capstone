@@ -5,8 +5,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from cms.sitemaps import CMSSitemap
 from django.conf.urls.i18n import i18n_patterns
-from .views import index
-
+from myproject.views import index, gallery
 admin.autodiscover()
 
 urlpatterns = [
@@ -16,8 +15,12 @@ urlpatterns = [
     path("blog/", include("blog.urls")),
     path("students/", include("students.urls")),
     path("register/", include("register.urls")),
-    path('faculty/', include('faculty.urls')),
-    path('mission/', include('mission.urls')),
+    path("faculty/", include("faculty.urls")),
+    path("mission/", include("mission.urls")),
+    path('publications/', include('publications.urls')),
+    path('team/', include('team.urls')),
+    path("gallery/", gallery, name="gallery"),  # add this line
+
 
     path("", index, name="index"),
     path("", include("cms.urls")),

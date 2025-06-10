@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-3xl font-bold mb-4">
+  {% if degree == "phd" %}PhD Students{% elif degree == "mtech" %}MTech
+  Students{% elif degree == "btech" %}BTech Students{% else %}Alumni{% endif %}
+</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+  {% for member in members %}
+  <div class="p-4 border border-gray-300 rounded shadow">
+    {% if member.profile_photo %}
+    <img
+      src="{{ member.profile_photo.url }}"
+      class="w-24 h-24 rounded-full mx-auto mb-2"
+    />
+    {% endif %}
+    <h2 class="text-xl font-bold text-center">{{ member.name }}</h2>
+    <p class="text-sm text-gray-600 text-center">{{ member.year }}</p>
+    <p class="text-center">{{ member.bio }}</p>
+    {% if member.current_affiliation %}
+    <p class="text-xs text-gray-500 text-center">
+      Current: {{ member.current_affiliation }}
+    </p>
+    {% endif %}
+  </div>
+  {% empty %}
+  <p>No members found.</p>
+  {% endfor %}
+</div>
+{% endblock %}

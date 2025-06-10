@@ -7,3 +7,7 @@ def index(request):
 def redirect_to_blog(request):
     return redirect("blog_list")  # Redirect to the blog list view
 
+from django.shortcuts import render
+
+def gallery(request):
+    return render(request, "gallery.html")

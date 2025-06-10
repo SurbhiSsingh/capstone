@@ -1,103 +1,274 @@
-{% comment %} <div class="bg-white">
-    <div class="max-sm:px-5 flex justify-between items-center max-w-[1300px] mx-auto">
-      <a href="/">
-        <img class="h-20" src="\static\assets\v-icon.png" />
-      </a>
-  
-      <!-- Desktop Nav -->
-      <ul class="max-sm:flex-col hidden lg:flex lg:space-x-6">
-        <li><a href="/">Home</a></li>
-        <li><a href="/research">Research</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-        <li><a href="/gallery">Gallery</a></li>
-        <li><a href="{% url 'blog_list' %}">Blog</a></li>
-        <li><a href="{% url 'student_list' %}">Student</a></li>
-        <li><a href="{% url 'register' %}">Register</a></li>
-      </ul>
-  
-      <!-- Logo Right -->
-      <div class="hidden lg:block">
-        <img class="h-20 w-[350px] object-cover" src="/static/assets/iiitd_logo.png" />
+<div class="bg-white shadow-lg rounded-b-xl sticky top-0 z-50">
+  <div class="px-5 flex items-center max-w-[1300px] mx-auto py-2">
+    <!-- Logo Left -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div
+        class="bg-gradient-to-tr from-blue-500 to-purple-600 rounded-full p-1 shadow-lg transition-transform group-hover:scale-105"
+      >
+        <img
+          class="h-16 w-16 object-contain rounded-full border-4 border-white"
+          src="/static/assets/v-icon.png"
+          alt="Logo"
+        />
       </div>
-  
-      <!-- Mobile Nav Button -->
-      <button onclick="toggleNav()" class="max-sm:block hidden border h-12 w-12 flex justify-center items-center rounded-full hover:bg-black hover:text-white">nav</button>
-  
-      <!-- Mobile Nav Menu -->
-      <ul id="nav-menu" class="hidden bg-white shadow-lg p-4 z-20 w-full flex flex-col gap-4 absolute top-16 left-0 px-5">
-        <li><a href="/">Home</a></li>
-        <li><a href="/research">Research</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-        <li><a href="/gallery">Gallery</a></li>
-        <li><a href="{% url 'blog_list' %}">Blog</a></li>
-        <li><a href="{% url 'student_list' %}">Student</a></li>
-        <li><a href="{% url 'register' %}">Register</a></li>
-      </ul>
-    </div>
-  
-    <!-- JS Script -->
-    <script>
-      function toggleNav() {
-        let navMenu = document.getElementById("nav-menu");
-        navMenu.classList.toggle("hidden");
-      }
-    </script>
-  </div>
-   {% endcomment %}
+      <span
+        class="text-2xl font-bold text-gray-800 tracking-wide group-hover:text-blue-600 transition-colors"
+        >IIITD Capstone</span
+      >
+    </a>
 
-   <div class="bg-white">
-    <div class="px-5 flex justify-between items-center max-w-[1300px] mx-auto">
-      <a href="/">
-        <img class="h-20" src="/static/assets/v-icon.png" />
-      </a>
-  
-      <!-- Desktop & Tablet Nav -->
-      <ul class="hidden md:flex md:space-x-6">
-        <li><a href="/">Home</a></li>
-        {% comment %} <li><a href="/research">Research</a></li> {% endcomment %}
-        <li><a href="/contact">Contact Us</a></li>
-        <li><a href="/gallery">Gallery</a></li>
-        <li><a href="{% url 'blog_list' %}">Blog</a></li>
-        <li><a href="{% url 'faculty_list' %}">Faculty</a></li>   <!-- Faculty link added -->
-
-        <li><a href="{% url 'student_list' %}">Student</a></li>
-        <li><a href="{% url 'news_list' %}">News</a></li>
-        <li><a href="{% url 'mission_vision' %}">Mission & Vision</a></li>
-        <li><a href="{% url 'register' %}">Register</a></li>
-      </ul>
-  
-      <!-- Logo Right -->
-      <div class="hidden lg:block">
-        <img class="h-20 w-[350px] object-cover" src="/static/assets/iiitd_logo.png" />
-      </div>
-  
-      <!-- Mobile Nav Button -->
-      <button onclick="toggleNav()" class="block md:hidden border h-12 w-12 flex justify-center items-center rounded-full hover:bg-black hover:text-white">
-        nav
-      </button>
-    </div>
-  
-    <!-- Mobile Nav Menu -->
-    <ul id="nav-menu" class="hidden bg-white shadow-lg p-4 z-20 w-full flex flex-col gap-4 absolute top-16 left-0 px-5 md:hidden">
-      <li><a href="/">Home</a></li>
-      {% comment %} <li><a href="/research">Research</a></li> {% endcomment %}
-      <li><a href="/contact">Contact Us</a></li>
-      <li><a href="/gallery">Gallery</a></li>
-      <li><a href="{% url 'blog_list' %}">Blog</a></li>
-      <li><a href="{% url 'faculty_list' %}">Faculty</a></li>   <!-- Faculty link added -->
-      <li><a href="{% url 'student_list' %}">Student</a></li>
-      <li><a href="{% url 'news_list' %}">News</a></li>
-      <li><a href="{% url 'mission_vision' %}">Mission & Vision</a></li>
-
-      <li><a href="{% url 'register' %}">Register</a></li>
+    <!-- Desktop & Tablet Nav -->
+    <ul class="hidden md:flex flex-1 justify-center space-x-4 font-medium">
+      <li>
+        <a
+          href="/"
+          class="{% if request.path == '/' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400{% endif %} px-2 py-1 transition-all duration-200 whitespace-nowrap"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/contact"
+          class="{% if request.path == '/contact' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400{% endif %} px-2 py-1 transition-all duration-200 whitespace-nowrap"
+        >
+          Contact Us
+        </a>
+      </li>
+      <li>
+        <a
+          href="/gallery"
+          class="{% if request.path == '/gallery' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400{% endif %} px-2 py-1 transition-all duration-200 whitespace-nowrap"
+        >
+          Gallery
+        </a>
+      </li>
+      <li>
+    <a href="{% url 'publication_list' %}" class="hover:text-blue-600">Research & Publications</a>
+</li>
+      <li>
+        <a
+          href="{% url 'blog_list' %}"
+          class="{% if request.resolver_match.url_name == 'blog_list' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400{% endif %} px-2 py-1 transition-all duration-200 whitespace-nowrap"
+        >
+          Blog
+        </a>
+      </li>
+      <!-- ...existing code... -->
+<!-- ...existing code... -->
+<li class="relative group">
+  <a
+    href="#"
+    class="text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400 px-2 py-1 transition-all duration-200 whitespace-nowrap flex items-center"
+  >
+    Team
+    <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </a>
+  <!-- Dropdown -->
+  <ul class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity duration-200 z-50">
+    <li>
+      <a href="{% url 'team_phd' %}" class="block px-4 py-2 hover:bg-blue-50 text-gray-700">PhD Students</a>
+    </li>
+    <li>
+      <a href="{% url 'team_mtech' %}" class="block px-4 py-2 hover:bg-blue-50 text-gray-700">MTech Students</a>
+    </li>
+    <li>
+      <a href="{% url 'team_btech' %}" class="block px-4 py-2 hover:bg-blue-50 text-gray-700">BTech Students</a>
+    </li>
+    <li>
+      <a href="{% url 'team_alumni' %}" class="block px-4 py-2 hover:bg-blue-50 text-gray-700">Alumni</a>
+    </li>
+    <li>
+      <hr class="my-1 border-gray-200">
+    </li>
+    <li>
+      <a href="{% url 'add_team_member' %}" class="block px-4 py-2 hover:bg-blue-50 text-gray-700">Add Member</a>
+    </li>
+  </ul>
+</li>
+<!-- ...existing code... -->
+<!-- ...existing code... -->
+      <li>
+        <a
+          href="{% url 'faculty_list' %}"
+          class="{% if request.resolver_match.url_name == 'faculty_list' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400{% endif %} px-2 py-1 transition-all duration-200 whitespace-nowrap"
+        >
+          Faculty
+        </a>
+      </li>
+      <li>
+        <a
+          href="{% url 'student_list' %}"
+          class="{% if request.resolver_match.url_name == 'student_list' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400{% endif %} px-2 py-1 transition-all duration-200 whitespace-nowrap"
+        >
+          Student
+        </a>
+      </li>
+      <li>
+        <a
+          href="{% url 'news_list' %}"
+          class="{% if request.resolver_match.url_name == 'news_list' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400{% endif %} px-2 py-1 transition-all duration-200 whitespace-nowrap"
+        >
+          News
+        </a>
+      </li>
+      <li>
+        <a
+          href="{% url 'mission_vision' %}"
+          class="{% if request.resolver_match.url_name == 'mission_vision' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400{% endif %} px-2 py-1 transition-all duration-200 whitespace-nowrap"
+        >
+          Mission & Vision
+        </a>
+      </li>
+      {% if user.is_authenticated %}
+      <li>
+        <a
+          href="{% url 'profile' %}"
+          class="{% if request.resolver_match.url_name == 'profile' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400{% endif %} px-2 py-1 transition-all duration-200 whitespace-nowrap"
+        >
+          Profile
+        </a>
+      </li>
+      {% else %}
+      <li>
+        <a
+          href="{% url 'register' %}"
+          class="{% if request.resolver_match.url_name == 'register' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-400{% endif %} px-2 py-1 transition-all duration-200 whitespace-nowrap"
+        >
+          Register
+        </a>
+      </li>
+      {% endif %}
     </ul>
-  
-    <!-- JS Script -->
-    <script>
-      function toggleNav() {
-        let navMenu = document.getElementById("nav-menu");
-        navMenu.classList.toggle("hidden");
-      }
-    </script>
+
+    <!-- Logo Right -->
+    <div class="hidden lg:flex items-center justify-end flex-1">
+      <img
+        class="h-14 w-[120px] object-contain rounded transition-transform duration-200 hover:scale-105 ml-8"
+        src="/static/assets/iiitd_logo.png"
+        alt="IIITD Logo"
+      />
+    </div>
+
+    <!-- Mobile Nav Button -->
+    <button
+      onclick="toggleNav()"
+      class="block md:hidden border h-12 w-12 flex justify-center items-center rounded-full hover:bg-blue-600 hover:text-white transition-colors duration-200"
+      aria-label="Open navigation"
+    >
+      <svg
+        class="w-7 h-7"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
   </div>
-  
+
+  <!-- Mobile Nav Menu -->
+  <ul
+    id="nav-menu"
+    class="hidden bg-white shadow-xl rounded-b-xl p-4 z-40 w-full flex flex-col gap-3 absolute top-20 left-0 px-5 md:hidden transition-all duration-300"
+  >
+    <li>
+      <a
+        href="/"
+        class="{% if request.path == '/' %}text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50{% else %}text-gray-700 hover:text-blue-600 hover:bg-blue-50 hover:border-l-4 hover:border-blue-400{% endif %} px-3 py-2 rounded transition-all duration-200 block"
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        href="/contact"
+        class="{% if request.path == '/contact' %}text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50{% else %}text-gray-700 hover:text-blue-600 hover:bg-blue-50 hover:border-l-4 hover:border-blue-400{% endif %} px-3 py-2 rounded transition-all duration-200 block"
+      >
+        Contact Us
+      </a>
+    </li>
+    <li>
+      <a
+        href="/gallery"
+        class="{% if request.path == '/gallery' %}text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50{% else %}text-gray-700 hover:text-blue-600 hover:bg-blue-50 hover:border-l-4 hover:border-blue-400{% endif %} px-3 py-2 rounded transition-all duration-200 block"
+      >
+        Gallery
+      </a>
+    </li>
+    <li>
+      <a
+        href="{% url 'blog_list' %}"
+        class="{% if request.resolver_match.url_name == 'blog_list' %}text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50{% else %}text-gray-700 hover:text-blue-600 hover:bg-blue-50 hover:border-l-4 hover:border-blue-400{% endif %} px-3 py-2 rounded transition-all duration-200 block"
+      >
+        Blog
+      </a>
+    </li>
+    <li>
+      <a
+        href="{% url 'faculty_list' %}"
+        class="{% if request.resolver_match.url_name == 'faculty_list' %}text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50{% else %}text-gray-700 hover:text-blue-600 hover:bg-blue-50 hover:border-l-4 hover:border-blue-400{% endif %} px-3 py-2 rounded transition-all duration-200 block"
+      >
+        Faculty
+      </a>
+    </li>
+    <li>
+      <a
+        href="{% url 'student_list' %}"
+        class="{% if request.resolver_match.url_name == 'student_list' %}text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50{% else %}text-gray-700 hover:text-blue-600 hover:bg-blue-50 hover:border-l-4 hover:border-blue-400{% endif %} px-3 py-2 rounded transition-all duration-200 block"
+      >
+        Student
+      </a>
+    </li>
+    <li>
+      <a
+        href="{% url 'news_list' %}"
+        class="{% if request.resolver_match.url_name == 'news_list' %}text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50{% else %}text-gray-700 hover:text-blue-600 hover:bg-blue-50 hover:border-l-4 hover:border-blue-400{% endif %} px-3 py-2 rounded transition-all duration-200 block"
+      >
+        News
+      </a>
+    </li>
+    <li>
+      <a
+        href="{% url 'mission_vision' %}"
+        class="{% if request.resolver_match.url_name == 'mission_vision' %}text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50{% else %}text-gray-700 hover:text-blue-600 hover:bg-blue-50 hover:border-l-4 hover:border-blue-400{% endif %} px-3 py-2 rounded transition-all duration-200 block"
+      >
+        Mission & Vision
+      </a>
+    </li>
+    {% if user.is_authenticated %}
+    <li>
+      <a
+        href="{% url 'profile' %}"
+        class="{% if request.resolver_match.url_name == 'profile' %}text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50{% else %}text-gray-700 hover:text-blue-600 hover:bg-blue-50 hover:border-l-4 hover:border-blue-400{% endif %} px-3 py-2 rounded transition-all duration-200 block"
+      >
+        Profile
+      </a>
+    </li>
+    {% else %}
+    <li>
+      <a
+        href="{% url 'register' %}"
+        class="{% if request.resolver_match.url_name == 'register' %}text-blue-600 font-bold border-l-4 border-blue-600 bg-blue-50{% else %}text-gray-700 hover:text-blue-600 hover:bg-blue-50 hover:border-l-4 hover:border-blue-400{% endif %} px-3 py-2 rounded transition-all duration-200 block"
+      >
+        Register
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+
+  <!-- JS Script -->
+  <script>
+    function toggleNav() {
+      let navMenu = document.getElementById("nav-menu");
+      navMenu.classList.toggle("hidden");
+    }
+  </script>
+</div>

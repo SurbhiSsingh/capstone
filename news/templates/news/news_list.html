@@ -1,50 +1,33 @@
-{% comment %} <div class="news-container" style="height: 200px; overflow: hidden; position: relative;">
-  <ul id="scrolling-news" style="position: absolute; list-style: none; margin: 0; padding: 0;">
-    {% if news %}
-    {% for item in news %}
-       <li>
-    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a><br>
-    <small>{{ item.published_date|date:"M d, Y" }}</small>
-  </li>
-    {% endfor %}
-{% else %}
-    <li class="no-news">Sample news: "This is a test news item"</li>
-{% endif %}
-
-  </ul>
-</div> {% endcomment %}
-
+{% extends "base.html" %} {% block content %}
 <div class="news-container">
-    <ul>
-        {% if news %}
-            {% for item in news %}
-                <li>
-                    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a><br>
-                    <small>{{ item.published_date|date:"M d, Y" }}</small>
-                </li>
-            {% endfor %}
-        {% else %}
-            <li>No news available.</li>
-        {% endif %}
-    </ul>
+  <ul>
+    {% if news %} {% for item in news %}
+    <li>
+      <a href="{{ item.get_absolute_url }}">{{ item.title }}</a><br />
+      <small>{{ item.published_date|date:"M d, Y" }}</small>
+    </li>
+    {% endfor %} {% else %}
+    <li>No news available.</li>
+    {% endif %}
+  </ul>
 </div>
 
-
 <script>
-  const list = document.getElementById('scrolling-news');
+  const list = document.getElementById("scrolling-news");
   let topPosition = 0;
 
   function scrollNews() {
-      topPosition -= 1;  // Move up the news list by 1px
-      list.style.top = topPosition + 'px';
+    topPosition -= 1; // Move up the news list by 1px
+    list.style.top = topPosition + "px";
 
-      // Reset scroll position when it has completely scrolled out of view
-      if (-topPosition >= list.offsetHeight) {
-          topPosition = document.querySelector('.news-container').offsetHeight;
-      }
+    // Reset scroll position when it has completely scrolled out of view
+    if (-topPosition >= list.offsetHeight) {
+      topPosition = document.querySelector(".news-container").offsetHeight;
+    }
 
-      requestAnimationFrame(scrollNews);
+    requestAnimationFrame(scrollNews);
   }
 
-  scrollNews();  // Start the scrolling animation
+  scrollNews(); // Start the scrolling animation
 </script>
+{% endblock %}
