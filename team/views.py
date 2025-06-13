@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import TeamMember
 from .forms import TeamMemberForm
+from .utils import login_required
+
 
 
 def team_list(request, degree):
@@ -9,7 +11,7 @@ def team_list(request, degree):
         request, f"team/team_list.html", {"members": members, "degree": degree}
     )
 
-
+@login_required
 def add_member(request):
     if request.method == "POST":
         form = TeamMemberForm(request.POST, request.FILES)

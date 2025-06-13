@@ -1,18 +1,34 @@
-<!-- mission_vision.html -->
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} {% block content %}
+<div class="max-w-4xl mx-auto py-10">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold">Mission & Vision</h1>
+    <a
+      href="{% url 'add_mission_vision' %}"
+      class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+    >
+      + Add
+    </a>
+  </div>
 
-
-{% block content %}
-<section class="mission-vision p-6 max-w-4xl mx-auto bg-white rounded shadow">
-    <div class="mission mb-8">
-        <h2 class="text-3xl font-bold text-blue-800 mb-2">Our Mission</h2>
-        <p>{{ mv.mission_text|linebreaks }}</p>
-    </div>
-
-    <div class="vision">
-        <h2 class="text-3xl font-bold text-green-800 mb-2">Our Vision</h2>
-        <p>{{ mv.vision_text|linebreaks }}</p>
-    </div>
-</section>
+  {% if mv %}
+  <ol class="space-y-6 list-decimal list-inside">
+    {% for item in mv %}
+    <li class="bg-gray-50 shadow-md rounded-lg p-6 border border-gray-200">
+      <div class="mb-4">
+        <h2 class="text-2xl font-bold text-blue-800">Mission</h2>
+        <p class="text-gray-700">{{ item.mission_text }}</p>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-green-800">Vision</h2>
+        <p class="text-gray-700">{{ item.vision_text }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+  {% else %}
+  <p class="text-gray-600">
+    No Mission & Vision entries available. Please add one.
+  </p>
+  {% endif %}
+</div>
 {% endblock %}

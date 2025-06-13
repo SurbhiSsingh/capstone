@@ -1,9 +1,7 @@
-# mission/models.py
-
 from django.db import models
 
 class MissionVision(models.Model):
-    title = models.CharField(max_length=100, default="Mission & Vision")
+    title = models.CharField(max_length=200, default="Mission & Vision")
     mission_text = models.TextField()
     vision_text = models.TextField()
     last_updated = models.DateTimeField(auto_now=True)

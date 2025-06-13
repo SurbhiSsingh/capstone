@@ -11,3 +11,7 @@ from django.shortcuts import render
 
 def gallery(request):
     return render(request, "gallery.html")
+from django.shortcuts import render
+
+def contact_view(request):
+    return render(request, 'contact.html')

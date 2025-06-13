@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Publication
 from .forms import PublicationForm
+from .utils import login_required  # Import the custom decorator
 
 def publication_list(request):
     publications = Publication.objects.all().order_by('-year')
@@ -20,6 +21,7 @@ def publication_list(request):
 
     return render(request, "publications/publications.html", {"publications": publications})
 
+@login_required
 def add_publication(request):
     if request.method == "POST":
         form = PublicationForm(request.POST)

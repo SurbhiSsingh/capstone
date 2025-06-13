@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from cms.sitemaps import CMSSitemap
 from django.conf.urls.i18n import i18n_patterns
-from myproject.views import index, gallery
+from myproject.views import index, gallery, contact_view
 admin.autodiscover()
 
 urlpatterns = [
@@ -19,7 +19,8 @@ urlpatterns = [
     path("mission/", include("mission.urls")),
     path('publications/', include('publications.urls')),
     path('team/', include('team.urls')),
-    path("gallery/", gallery, name="gallery"),  # add this line
+    path('contact/', contact_view, name='contact'),  # Add the missing comma here
+    path("gallery/", gallery, name="gallery"),  # Ensure this line is correct
 
 
     path("", index, name="index"),
