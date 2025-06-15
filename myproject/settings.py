@@ -262,6 +262,13 @@ CMS_PERMISSION = True
 
 CMS_PLACEHOLDER_CONF = {}
 
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'capstone-eh5f.onrender.com',  # Add this domain
+]
+
 DATABASES = {
     "default": {
         "CONN_HEALTH_CHECKS": "False",
